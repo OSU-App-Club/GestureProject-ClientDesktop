@@ -1,3 +1,4 @@
+import moveMouse from './moveMouse.ts';
 import { Server as WebSocketServer, WebSocket } from 'ws';
 import amqp from 'amqplib/callback_api';
 
@@ -104,8 +105,39 @@ function main() {
                                             )}`
                                         );
 
+                                        const { x, y, width, height, gesture } =
+                                            message;
+                                        // make sure x, y, width, height is a number
+                                        if (
+                                            typeof x !== 'number' ||
+                                            typeof y !== 'number' ||
+                                            typeof width !== 'number' ||
+                                            typeof height !== 'number'
+                                        ) {
+                                            console.error(
+                                                'x, y, width, height is not a number'
+                                            );
+                                            return;
+                                        }
+
+                                        // make sure x and y are b/t 0 and width or height
+                                        if (
+                                            x < 0 ||
+                                            x > width ||
+                                            y < 0 ||
+                                            y > height
+                                        ) {
+                                            console.error(
+                                                'x or y is out of bounds'
+                                            );
+                                            return;
+                                        }
+
                                         // Send the message to the client over the WebSocket connection
                                         ws.send(JSON.stringify(message));
+
+                                        // Move the mouse
+                                        moveMouse(x, y, width, height, gesture);
                                     } catch (e) {
                                         console.error(e);
                                     }
