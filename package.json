@@ -1,22 +1,31 @@
 {
-  "name": "clientdesktop",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.35",
-    "@types/react-dom": "18.0.11",
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "next": "13.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.0.4"
-  }
+    "name": "clientdesktop",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@types/node": "18.15.11",
+        "@types/react": "18.0.35",
+        "@types/react-dom": "18.0.11",
+        "amqplib": "^0.10.3",
+        "dotenv": "^16.0.3",
+        "eslint": "8.38.0",
+        "eslint-config-next": "13.3.0",
+        "next": "13.3.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "typescript": "5.0.4",
+        "ws": "^8.13.0"
+    },
+    "devDependencies": {
+        "@types/amqplib": "^0.10.1",
+        "@types/ws": "^8.5.4",
+        "prettier": "^2.8.7",
+        "ts-node": "^10.9.1"
+    }
 }
