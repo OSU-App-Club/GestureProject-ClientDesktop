@@ -105,8 +105,9 @@ function main() {
                                             )}`
                                         );
 
-                                        const { x, y, width, height, gesture } =
-                                            message;
+                                        const value = JSON.parse(message.value);
+                                        console.log('value:', value);
+                                        const { x, y, width, height, gesture } = value;
                                         // make sure x, y, width, height is a number
                                         if (
                                             typeof x !== 'number' ||
