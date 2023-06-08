@@ -10,7 +10,7 @@ async function moveMouse(
     y: number,
     serverScreenWidth: number,
     serverScreenLength: number,
-    gesture: any
+    value: any
 ) {
     // Calculate the new mouse position
     const newX = Math.round((x / serverScreenWidth) * width);
@@ -18,6 +18,14 @@ async function moveMouse(
 
     // Move the mouse
     robot.moveMouseSmooth(newX, newY, mouseSpeed);
+
+    // left click down if distanceFromScreen <= 0, otherwise left click up
+    const { distanceFromScreen } = value;
+    if (distanceFromScreen <= 0) {
+        robot.mouseToggle('down', 'left');
+    } else {
+        robot.mouseToggle('up', 'left');
+    }
 }
 
 export default moveMouse;

@@ -107,7 +107,7 @@ function main() {
 
                                         const value = JSON.parse(message.value);
                                         console.log('value:', value);
-                                        const { x, y, width, height, gesture } = value;
+                                        const { x, y, width, height } = value;
                                         // make sure x, y, width, height is a number
                                         if (
                                             typeof x !== 'number' ||
@@ -138,7 +138,7 @@ function main() {
                                         ws.send(JSON.stringify(message));
 
                                         // Move the mouse
-                                        moveMouse(x, y, width, height, gesture);
+                                        moveMouse(x, y, width, height, value);
                                     } catch (e) {
                                         console.error(e);
                                     }
